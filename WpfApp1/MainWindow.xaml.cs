@@ -52,7 +52,7 @@ namespace WpfApp1
 
         private void Calculate()
         {
-            int? age;
+            int age;
              try {
                 //Calculate age
                 age = CalculateAge();
@@ -64,11 +64,8 @@ namespace WpfApp1
 
             }
 
-
-            if (age.HasValue)
-            {
                 AgeResult = $"Your age is: {age} years";
-            }
+           
 
             //Check birthday
             CheckBirthday();
@@ -78,7 +75,7 @@ namespace WpfApp1
         }
 
         //Calculate Age method
-        private int? CalculateAge()
+        private int CalculateAge()
         {
 
                 DateTime today = DateTime.Today;
@@ -118,49 +115,54 @@ namespace WpfApp1
         //calculate zodiac signs method
         private void CalculateZodiacSigns()
         {
-            
+           
             //Use user's birth month for the Western sign
-            _westernZodiacSign = GetWesternZodiacSign(BirthDate.Month, BirthDate.Day);
-
+            _westernZodiacSign = GetWesternZodiacSign(BirthDate.Year, BirthDate.Month, BirthDate.Day);
+            
+ 
             //Use user's birth year for the Chinese sign
             _chineseZodiacSign = GetChineseZodiacSign(BirthDate.Year);
+            
 
             RaisePropertyChanged(nameof(WesternZodiacSign));
             RaisePropertyChanged(nameof(ChineseZodiacSign));
         }
 
         //Wester sign calculator
-        private string GetWesternZodiacSign(int month, int day)
+        private string GetWesternZodiacSign(int year, int month, int day)
         {
+            
             string str = string.Empty;
+           
+
 
             //JAN-FEB
-            if (((month == 1) && (day >= 23 && day <= 31)) || ((month == 2) && (day >= 01 && day <= 21)))
+            if (((month == 1) && (day >= 20 && day <= 31)) || ((month == 2) && (day >= 01 && day <= 18)))
             {
                return str = "Aquarius";
             }
             //FEB-MAR
-            if (((month == 2) && (day >= 23 && day <= 28)) || ((month == 3) && (day >= 01 && day <= 21)))
+            if (((month == 2) && (day >= 19 && day <= 28)) || ((month == 3) && (day >= 01 && day <= 20)))
             {
                 return str = "Pisces";
             }
             //MAR-APR
-            if (((month == 3) && (day >= 21 && day <= 31)) || ((month == 4) && (day >= 01 && day <= 20)))
+            if (((month == 3) && (day >= 21 && day <= 31)) || ((month == 4) && (day >= 01 && day <= 19)))
             {
                 return str = "Aires";
             }
             //APR-MAY
-            if (((month == 4) && (day >= 21 && day <= 31)) || ((month == 5) && (day >= 01 && day <= 21)))
+            if (((month == 4) && (day >= 20 && day <= 30)) || ((month == 5) && (day >= 01 && day <= 20)))
             {
                 return str = "Taurus";
             }
             //MAY-JUN
-            if (((month == 5) && (day >= 21 && day <= 31)) || ((month == 6) && (day >= 01 && day <= 21)))
+            if (((month == 5) && (day >= 21 && day <= 31)) || ((month == 6) && (day >= 01 && day <= 20)))
             {
                 return str = "Gemini";
             }
             //JUN-JULY
-            if (((month == 6) && (day >= 22 && day <= 31)) || ((month == 7) && (day >= 01 && day <= 22)))
+            if (((month == 6) && (day >= 21 && day <= 30)) || ((month == 7) && (day >= 01 && day <= 22)))
             {
                 return str = "Cancer";
             }
@@ -170,12 +172,12 @@ namespace WpfApp1
                 return str = "Leo";
             }
             //AUG-SEP
-            if (((month == 8) && (day >= 23 && day <= 31)) || ((month == 9) && (day >= 01 && day <= 21)))
+            if (((month == 8) && (day >= 23 && day <= 31)) || ((month == 9) && (day >= 01 && day <= 22)))
             {
                 return str = "Virgo";
             }
             //SEP-OCT
-            if (((month == 9) && (day >= 23 && day <= 31)) || ((month == 10) && (day >= 01 && day <= 21)))
+            if (((month == 9) && (day >= 23 && day <= 30)) || ((month == 10) && (day >= 01 && day <= 22)))
             {
                 return str = "Libra";
             }
@@ -185,15 +187,17 @@ namespace WpfApp1
                 return str = "Scorpio";
             }
             //NOV-DEC
-            if (((month == 11) && (day >= 23 && day <= 31)) || ((month == 12) && (day >= 01 && day <= 21)))
+            if (((month == 11) && (day >= 22 && day <= 30)) || ((month == 12) && (day >= 01 && day <= 21)))
             {
                 return str = "Sagittarius";
             }
             //DEC-JAN
-            if (((month == 12) && (day >= 23 && day <= 31)) || ((month == 1) && (day >= 01 && day <= 21)))
+            if (((month == 12) && (day >= 22 && day <= 31)) || ((month == 1) && (day >= 01 && day <= 19)))
             {
                 return str = "Capricorn";
             }
+
+
             return str = "Unknown";
           
         }
