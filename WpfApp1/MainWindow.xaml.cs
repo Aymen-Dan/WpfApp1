@@ -88,15 +88,16 @@ namespace WpfApp1
                 {
                     age--;
                 }
-                
 
-                //Check if age is within a reasonable range
-                if (age < 0 || age > 135)
-                {
+
+            //Check if age is within a reasonable range
+            if (age < 0 || age > 135)
+            {
                 throw new Exception("Invalid age. Please check your date of birth.");
-                }
 
-                return age;
+            }
+
+            return age;
             
           
         }
