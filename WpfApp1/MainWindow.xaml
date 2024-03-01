@@ -11,13 +11,26 @@
         <DatePicker SelectedDate="{Binding BirthDate}" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <Button Content="Calculate" Command="{Binding CalculateCommand}" Margin="10,40,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
 
-        <TextBlock Text="{Binding AgeResult}" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBlock Text="{Binding BirthdayMessage}" Margin="10,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <!-- AgeResult with color -->
+        <TextBlock Text="{Binding AgeResult}" Margin="10,80,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Foreground="Green"/>
+       
+
+        <!-- BirthdayMessage with color -->
+        <TextBlock Text="{Binding BirthdayMessage}" Margin="10,110,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Foreground="Blue"/>
+        
 
         <TextBlock Text="Western Zodiac Sign:" Margin="10,140,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBlock Text="{Binding WesternZodiacSign}" Margin="10,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <!-- WesternZodiacSign with color -->
+        <TextBlock Text="{Binding WesternZodiacSign}" Margin="10,160,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Foreground="Red"/>
+       
 
         <TextBlock Text="Chinese Zodiac Sign:" Margin="10,190,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBlock Text="{Binding ChineseZodiacSign}" Margin="10,210,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <!-- ChineseZodiacSign with color -->
+        <TextBlock Text="{Binding ChineseZodiacSign}" Margin="10,210,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"
+                   Foreground="Purple"/>
+        
     </Grid>
 </Window>
