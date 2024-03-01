@@ -120,7 +120,7 @@ namespace WpfApp1
         {
             
             //Use user's birth month for the Western sign
-            _westernZodiacSign = GetWesternZodiacSign(BirthDate.Month);
+            _westernZodiacSign = GetWesternZodiacSign(BirthDate.Month, BirthDate.Day);
 
             //Use user's birth year for the Chinese sign
             _chineseZodiacSign = GetChineseZodiacSign(BirthDate.Year);
@@ -130,17 +130,72 @@ namespace WpfApp1
         }
 
         //Wester sign calculator
-        private string GetWesternZodiacSign(int month)
+        private string GetWesternZodiacSign(int month, int day)
         {
-            
-            //Try to replace with actual logic?
-            switch (month)
+            string str = string.Empty;
+
+            //JAN-FEB
+            if (((month == 1) && (day >= 23 && day <= 31)) || ((month == 2) && (day >= 01 && day <= 21)))
             {
-                case 1: return "Capricorn";
-                case 2: return "Aquarius";
-                // ... 
-                default: return "Unknown";
+               return str = "Aquarius";
             }
+            //FEB-MAR
+            if (((month == 2) && (day >= 23 && day <= 28)) || ((month == 3) && (day >= 01 && day <= 21)))
+            {
+                return str = "Pisces";
+            }
+            //MAR-APR
+            if (((month == 3) && (day >= 21 && day <= 31)) || ((month == 4) && (day >= 01 && day <= 20)))
+            {
+                return str = "Aires";
+            }
+            //APR-MAY
+            if (((month == 4) && (day >= 21 && day <= 31)) || ((month == 5) && (day >= 01 && day <= 21)))
+            {
+                return str = "Taurus";
+            }
+            //MAY-JUN
+            if (((month == 5) && (day >= 21 && day <= 31)) || ((month == 6) && (day >= 01 && day <= 21)))
+            {
+                return str = "Gemini";
+            }
+            //JUN-JULY
+            if (((month == 6) && (day >= 22 && day <= 31)) || ((month == 7) && (day >= 01 && day <= 22)))
+            {
+                return str = "Cancer";
+            }
+            //JUL-AUG
+            if (((month == 7) && (day >= 23 && day <= 31)) || ((month == 8) && (day >= 01 && day <= 22)))
+            {
+                return str = "Leo";
+            }
+            //AUG-SEP
+            if (((month == 8) && (day >= 23 && day <= 31)) || ((month == 9) && (day >= 01 && day <= 21)))
+            {
+                return str = "Virgo";
+            }
+            //SEP-OCT
+            if (((month == 9) && (day >= 23 && day <= 31)) || ((month == 10) && (day >= 01 && day <= 21)))
+            {
+                return str = "Libra";
+            }
+            //OCT-NOV
+            if (((month == 10) && (day >= 23 && day <= 31)) || ((month == 11) && (day >= 01 && day <= 21)))
+            {
+                return str = "Scorpio";
+            }
+            //NOV-DEC
+            if (((month == 11) && (day >= 23 && day <= 31)) || ((month == 12) && (day >= 01 && day <= 21)))
+            {
+                return str = "Sagittarius";
+            }
+            //DEC-JAN
+            if (((month == 12) && (day >= 23 && day <= 31)) || ((month == 1) && (day >= 01 && day <= 21)))
+            {
+                return str = "Capricorn";
+            }
+            return str = "Unknown";
+          
         }
 
         //Chinese sign calculator
